@@ -1,0 +1,28 @@
+{
+  "name": "custom-build",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "node scripts/choose-role.js && cross-env next build",
+    "start": "cross-env next start",
+    "lint": "next lint",
+    "custom-build": "node scripts/choose-role.js && cross-env next build"
+  },
+  "dependencies": {
+    "@types/node": "20.4.4",
+    "@types/react": "18.2.15",
+    "@types/react-dom": "18.2.7",
+    "autoprefixer": "10.4.14",
+    "next": "13.4.12",
+    "postcss": "8.4.27",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "tailwindcss": "3.3.3",
+    "typescript": "5.1.6"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "readline-sync": "^1.4.10"
+  }
+}
