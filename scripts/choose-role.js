@@ -1,19 +1,12 @@
-// -----------------------------------------------------------------------
-// This file iam using to create a user based build by choosing the role.
-// -----------------------------------------------------------------------
 
-const readlineSync = require("readline-sync");
 const fs = require("fs");
 
-const roles = ["user", "admin"];
-const selectedRole = readlineSync.keyInSelect(roles, "Choose the role (user/admin): ");
+const role = process.env.npm_config_role;
 
-if (selectedRole === -1) {
-    console.error("\x1b[31mNo role selected. Aborting build.\x1b[0m");
-    process.exit(1);
+if (!role || !["user", "admin"].includes(role)) {
+  console.error("\x1b[31mInvalid or no role specified. Available roles are user and admin.\x1b[0m");
+  process.exit(1);
 }
-
-const role = roles[selectedRole];
 
 fs.writeFileSync(".env.local", `NEXT_PUBLIC_APP_TYPE=${role}\n`, { flag: "w" });
 
