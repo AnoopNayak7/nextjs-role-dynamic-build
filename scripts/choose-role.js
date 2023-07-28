@@ -8,7 +8,7 @@ if (!role || !["user", "admin"].includes(role)) {
   process.exit(1);
 }
 
-fs.writeFileSync(".env.local", `NEXT_PUBLIC_APP_TYPE=${role}\n`, { flag: "w" });
+fs.writeFileSync(".env.production", `NEXT_PUBLIC_APP_TYPE=${role}\n`, { flag: "w" });
 
 console.log('------------------------------------------------');
 console.log(`\x1b[32mBuild will be for role: ${role} \x1b[0m`);
