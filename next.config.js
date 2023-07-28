@@ -1,10 +1,12 @@
-const fs = require('fs-extra');
-const path = require('path');
+const fs = require("fs-extra");
+const path = require("path");
 
-const roles = ['user', 'admin'];
-const selectedRole = process.env.NEXT_PUBLIC_APP_TYPE || 'user';
+// const RemoveUserRoutesPlugin = require('./scripts/removeUserRoutes')
 
-const excludeFolder = selectedRole === 'admin' ? 'user' : 'admin';
+const roles = ["user", "admin"];
+const selectedRole = process.env.NEXT_PUBLIC_APP_TYPE || "user";
+
+const excludeFolder = selectedRole === "admin" ? "user" : "admin";
 
 const nextConfig = {
   reactStrictMode: true,
@@ -12,15 +14,18 @@ const nextConfig = {
     if (!isServer) {
       config.module.rules.push({
         test: new RegExp(`pages[\\\\/]${excludeFolder}[\\\\/]`),
-        loader: 'ignore-loader',
+        loader: "emit-file-loader",
+        options: {
+          name: "dist/pages/[name].js",
+        },
       });
+      // config.plugins.push(new RemoveUserRoutesPlugin());
     }
-    
     return config;
   },
   experimental: {
     outputFileTracingExcludes: {
-      pages: [`src/pages/${excludeFolder}/**/*`,``]
+      pages: [`src/pages/${excludeFolder}/**/*`, ``],
     },
   },
 };

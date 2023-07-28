@@ -1,9 +1,6 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
 
-const index = () => {
-  return (
-    <div>Admin Page</div>
-  )
-}
+const BackofficeLogin = dynamic(() => import('../../views/backofficelogin'))
 
-export default index
+export default BackofficeLogin;

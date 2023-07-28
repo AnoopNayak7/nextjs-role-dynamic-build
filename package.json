@@ -8,15 +8,20 @@
     "test": "node scripts/test.js --role",
     "start": "cross-env next start -p 8888",
     "lint": "next lint",
-    "custom-build": "node scripts/choose-role.js && cross-env next build"
+    "custom-build": "node scripts/choose-role.js && cross-env next build",
+    "analyze": "next build && webpack-bundle-analyzer ./.next/stats.json",
+    "prebuild": "node scripts/removeUserRoutes.js",
+    "postbuild": "node scripts/removeUserRoutes.js"
   },
   "dependencies": {
     "@types/node": "20.4.4",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.14",
+    "emit-file-loader": "^0.0.2",
     "fs-extra": "^11.1.1",
     "next": "13.4.12",
+    "next-bundle-analyzer": "^0.6.7",
     "next-compose-plugins": "^2.2.1",
     "postcss": "8.4.27",
     "react": "18.2.0",
@@ -29,6 +34,7 @@
     "cross-env": "^7.0.3",
     "ignore-loader": "^0.1.2",
     "null-loader": "^4.0.1",
-    "readline-sync": "^1.4.10"
+    "readline-sync": "^1.4.10",
+    "webpack-bundle-analyzer": "^4.9.0"
   }
 }

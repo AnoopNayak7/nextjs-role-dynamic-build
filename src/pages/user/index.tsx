@@ -1,9 +1,6 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
 
-const index = () => {
-  return (
-    <div>User Page</div>
-  )
-}
+const SelfcareLogin = dynamic(() => import('../../views/selfcarelogin'))
 
-export default index
+export default SelfcareLogin
