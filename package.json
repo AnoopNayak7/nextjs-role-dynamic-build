@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "node scripts/choose-role.js --role=$npm_config_role && cross-env next build",
     "test": "node scripts/test.js --role",
-    "start": "cross-env next start -p 8888",
+    "start": "cross-env next start",
     "lint": "next lint",
     "custom-build": "node scripts/choose-role.js && cross-env next build",
     "analyze": "next build && webpack-bundle-analyzer ./.next/stats.json",
