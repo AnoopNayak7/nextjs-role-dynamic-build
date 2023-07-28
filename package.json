@@ -10,8 +10,7 @@
     "lint": "next lint",
     "custom-build": "node scripts/choose-role.js && cross-env next build",
     "analyze": "next build && webpack-bundle-analyzer ./.next/stats.json",
-    "postbuild": "node scripts/removeUserRoutes.js",
-    "prebuild": "node scripts/removeUserRoutes.js"
+    "postbuild": "node scripts/removeUserRoutes.js"
   },
   "dependencies": {
     "@types/node": "20.4.4",
