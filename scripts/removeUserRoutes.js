@@ -30,6 +30,10 @@ const removeUserRoutes = async () => {
         await fs.remove(path.join(chunksPagesDir, file));
       }
     }
+
+    const serverDir = path.join(".next", "server", "pages", "user");
+    await fs.remove(serverDir);
+
   } catch (error) {
     console.error("Error removing user routes:", error);
   }
