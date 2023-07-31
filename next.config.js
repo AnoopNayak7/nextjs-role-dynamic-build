@@ -19,7 +19,6 @@ const nextConfig = {
           name: "dist/pages/[name].js",
         },
       });
-      // config.plugins.push(new RemoveUserRoutesPlugin());
     }
     return config;
   },
